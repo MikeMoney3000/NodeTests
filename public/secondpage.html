@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<p> alder die zweite page oder wie </p>
+<form>
+		<input type="text" name="Gib mal was ein junge" id="inpt">
+<br>
+
+		<button id="btn_1" onclick="someTestFunction();">super button oder</button>
+
+</form>
+
+
+<script type="text/javascript">
+	
+function someTestFunction(){
+
+
+var city = document.getElementById("inpt").value;
+var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=0e4ec5520d3f21a95ba7f775988007a8";
+
+console.log("url= " + url);
+console.log("city= " + city);
+
+
+var xhr = new XMLHttpRequest();
+//var response = JSON.parse(xhr.responseText);
+
+
+
+xhr.onload = function () {
+    if (xhr.readyState === xhr.DONE) {
+        if (xhr.status === 200) {
+            console.log(xhr.response);
+            console.log(xhr.responseText);
+        }
+    }
+};
+
+//"http://api.openweathermap.org/data/2.5/weather?q=London&appid=0e4ec5520d3f21a95ba7f775988007a8"
+
+xhr.open("GET", url , false);
+xhr.send();
+
+console.log(xhr.status);
+console.log(xhr.statusText);
+//console.log(response.value);
+
+
+
+}
+
+
+function myHandler(){
+
+
+}
+
+</script>
+
+</body>
+</html>
